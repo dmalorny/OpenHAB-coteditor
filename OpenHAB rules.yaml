@@ -1,63 +1,22 @@
-variables:
-- beginString: "super"
-- beginString: "this"
-keywords:
-- beginString: "end"
-- beginString: "rule"
-- beginString: "then"
-- beginString: "when"
-comments: []
-characters:
-- beginString: "'"
-  endString: "'"
-types:
-- beginString: "boolean"
-- beginString: "byte"
-- beginString: "char"
-- beginString: "double"
-- beginString: "float"
-- beginString: "int"
-- beginString: "Item"
-- beginString: "long"
-- beginString: "Number"
-- beginString: "short"
-- beginString: "String"
-- beginString: "Time"
-- beginString: "val"
-- beginString: "var"
-- beginString: "void"
-strings:
-- beginString: "\""
-  endString: "\""
-metadata:
-  version: "0.1"
-  author: "dmalorny"
-  license: "MIT"
-  lastModified: "2019-05-22"
-  description: "Work in progress..."
-  distributionURL: "https://github.com/dmalorny/OpenHAB-coteditor"
-extensions:
-- keyString: "rules"
-commands:
-- beginString: "(?<=\\.)[a-z$_][a-zA-Z0-9$_]*(?=\\()"
-  regularExpression: true
 outlineMenu:
 - beginString: "^([\\t ]*)(rule)(.*?)(?=(\\{|$))"
   bold: true
   keyString: "$1$2 : $3"
   description: "rule"
-values:
-- beginString: "\\b[A-Z][A-Z0-9_]+\\b"
+commands:
+- beginString: "(?<=\\.)[a-z$_][a-zA-Z0-9$_]*(?=\\()"
   regularExpression: true
-- beginString: "false"
-- beginString: "NaN"
-- beginString: "null"
-- beginString: "true"
-commentDelimiters:
-  endDelimiter: "*/"
-  beginDelimiter: "/*"
-  inlineDelimiter: "//"
+- beginString: "logDebug"
+- beginString: "logInfo"
+- beginString: "postUpdate"
+- beginString: "say"
+- beginString: "sendCommand"
 attributes: []
+extensions:
+- keyString: "rules"
+characters:
+- beginString: "'"
+  endString: "'"
 numbers:
 - beginString: "\\b((\\d+\\.\\d*)|(\\.\\d+))(e[-+]?\\d+)?([lfud]|ul)?\\b"
   ignoreCase: true
@@ -71,3 +30,72 @@ numbers:
 - beginString: "\\b[0-9_]+([lfud]|ul)?\\b"
   ignoreCase: true
   regularExpression: true
+strings:
+- beginString: "\""
+  endString: "\""
+keywords:
+- beginString: "and"
+- beginString: "as"
+- beginString: "case"
+- beginString: "changed"
+- beginString: "command"
+- beginString: "cron"
+- beginString: "end"
+- beginString: "import"
+- beginString: "is"
+- beginString: "Member of"
+- beginString: "or"
+- beginString: "received"
+- beginString: "rule"
+- beginString: "started"
+- beginString: "switch"
+- beginString: "then"
+- beginString: "to"
+- beginString: "triggered"
+- beginString: "update"
+- beginString: "when"
+variables:
+- beginString: "super"
+- beginString: "this"
+metadata:
+  version: "0.1"
+  author: "dmalorny"
+  license: "MIT"
+  lastModified: "2019-05-22"
+  description: "Work in progress..."
+  distributionURL: "https://github.com/dmalorny/OpenHAB-coteditor"
+values:
+- beginString: "\\b[A-Z][A-Z0-9_]+\\b"
+  regularExpression: true
+- beginString: "false"
+- beginString: "NaN"
+- beginString: "null"
+- beginString: "true"
+commentDelimiters:
+  endDelimiter: "*/"
+  beginDelimiter: "/*"
+  inlineDelimiter: "//"
+types:
+- beginString: "boolean"
+- beginString: "byte"
+- beginString: "Channel"
+- beginString: "char"
+- beginString: "DateTimeType"
+- beginString: "DecimalType"
+- beginString: "double"
+- beginString: "float"
+- beginString: "int"
+- beginString: "Item"
+- beginString: "long"
+- beginString: "Number"
+- beginString: "PointType"
+- beginString: "short"
+- beginString: "SimpleDateFormat"
+- beginString: "String"
+- beginString: "System"
+- beginString: "Thing"
+- beginString: "Time"
+- beginString: "val"
+- beginString: "var"
+- beginString: "void"
+comments: []

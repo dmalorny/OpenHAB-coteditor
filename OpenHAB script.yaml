@@ -1,52 +1,17 @@
-numbers:
-- beginString: "\\b((\\d+\\.\\d*)|(\\.\\d+))(e[-+]?\\d+)?([lfud]|ul)?\\b"
-  ignoreCase: true
-  regularExpression: true
-- beginString: "\\b0b[01_]+([lfud]|ul)?\\b"
-  ignoreCase: true
-  regularExpression: true
-- beginString: "\\b0x[0-9a-f_]+([lfud]|ul)?\\b"
-  ignoreCase: true
-  regularExpression: true
-- beginString: "\\b[0-9_]+([lfud]|ul)?\\b"
-  ignoreCase: true
-  regularExpression: true
-variables:
-- beginString: "super"
-- beginString: "this"
 metadata:
-  distributionURL: "https://github.com/dmalorny/OpenHAB-coteditor"
+  version: "0.1"
   author: "dmalorny"
   license: "MIT"
   lastModified: "2019-05-22"
   description: "Work in progress..."
-  version: "0.1"
-types:
-- beginString: "boolean"
-- beginString: "byte"
-- beginString: "char"
-- beginString: "double"
-- beginString: "float"
-- beginString: "int"
-- beginString: "long"
-- beginString: "short"
-- beginString: "String"
-- beginString: "var"
-- beginString: "void"
-commands:
-- beginString: "(?<=\\.)[a-z$_][a-zA-Z0-9$_]*(?=\\()"
-  regularExpression: true
-values:
-- beginString: "\\b[A-Z][A-Z0-9_]+\\b"
-  regularExpression: true
-- beginString: "false"
-- beginString: "NaN"
-- beginString: "null"
-- beginString: "true"
-commentDelimiters:
-  endDelimiter: "*/"
-  beginDelimiter: "/*"
-  inlineDelimiter: "//"
+  distributionURL: "https://github.com/dmalorny/OpenHAB-coteditor"
+strings:
+- beginString: "\""
+  endString: "\""
+characters:
+- beginString: "'"
+  endString: "'"
+comments: []
 keywords:
 - beginString: "abstract"
 - beginString: "assert"
@@ -85,9 +50,26 @@ keywords:
 - beginString: "try"
 - beginString: "volatile"
 - beginString: "while"
-characters:
-- beginString: "'"
-  endString: "'"
+variables:
+- beginString: "super"
+- beginString: "this"
+extensions:
+- keyString: "script"
+attributes: []
+values:
+- beginString: "\\b[A-Z][A-Z0-9_]+\\b"
+  regularExpression: true
+- beginString: "false"
+- beginString: "NaN"
+- beginString: "null"
+- beginString: "true"
+commands:
+- beginString: "(?<=\\.)[a-z$_][a-zA-Z0-9$_]*(?=\\()"
+  regularExpression: true
+- beginString: "logDebug"
+- beginString: "logInfo"
+- beginString: "postUpdate"
+- beginString: "sendCommand"
 outlineMenu:
 - beginString: "^([\\t ]*)(class)(.*?)(?=(\\{|$))"
   bold: true
@@ -99,10 +81,32 @@ outlineMenu:
   description: "protected"
 - beginString: "^([\\t ]*)(public)[\\t ]+(.*)(?=\\{)"
   description: "public"
-extensions:
-- keyString: "script"
-strings:
-- beginString: "\""
-  endString: "\""
-attributes: []
-comments: []
+numbers:
+- beginString: "\\b((\\d+\\.\\d*)|(\\.\\d+))(e[-+]?\\d+)?([lfud]|ul)?\\b"
+  ignoreCase: true
+  regularExpression: true
+- beginString: "\\b0b[01_]+([lfud]|ul)?\\b"
+  ignoreCase: true
+  regularExpression: true
+- beginString: "\\b0x[0-9a-f_]+([lfud]|ul)?\\b"
+  ignoreCase: true
+  regularExpression: true
+- beginString: "\\b[0-9_]+([lfud]|ul)?\\b"
+  ignoreCase: true
+  regularExpression: true
+commentDelimiters:
+  endDelimiter: "*/"
+  beginDelimiter: "/*"
+  inlineDelimiter: "//"
+types:
+- beginString: "boolean"
+- beginString: "byte"
+- beginString: "char"
+- beginString: "double"
+- beginString: "float"
+- beginString: "int"
+- beginString: "long"
+- beginString: "short"
+- beginString: "String"
+- beginString: "var"
+- beginString: "void"

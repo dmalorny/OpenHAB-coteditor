@@ -1,7 +1,53 @@
-comments: []
-variables:
-- beginString: "super"
-- beginString: "this"
+metadata:
+  version: "0.1"
+  author: "dmalorny"
+  license: "MIT"
+  lastModified: "2019-05-22"
+  description: "Work in progress..."
+  distributionURL: "https://github.com/dmalorny/OpenHAB-coteditor"
+types:
+- beginString: "Chart"
+- beginString: "Colorpicker"
+- beginString: "Contact"
+- beginString: "Default"
+- beginString: "Frame"
+- beginString: "Group"
+- beginString: "Image"
+- beginString: "Item"
+- beginString: "Mapview"
+- beginString: "Selection"
+- beginString: "Setpoint"
+- beginString: "Slider"
+- beginString: "String"
+- beginString: "Switch"
+- beginString: "Text"
+- beginString: "Video"
+- beginString: "Webview"
+outlineMenu:
+- beginString: "^([\\t ]*)(Frame)(.*?)(?=(\\{|$))"
+  keyString: "$1$2 $3"
+  description: "Frame"
+- beginString: "^([\\t ]*)(Group)(.*?)(?=(\\{|$))"
+  keyString: "$1$2 $3"
+  description: "Group"
+- beginString: "^([\\t ]*)(sitemap)(.*?)(?=(\\{|$))"
+  bold: true
+  keyString: "$1$2 $3"
+  description: "sitemap"
+attributes:
+- beginString: "height"
+- beginString: "icon"
+- beginString: "item"
+- beginString: "label"
+- beginString: "labelcolor"
+- beginString: "mappings"
+- beginString: "maxValue"
+- beginString: "minValue"
+- beginString: "refresh"
+- beginString: "step"
+- beginString: "valuecolor"
+- beginString: "visibility"
+- beginString: "width"
 numbers:
 - beginString: "\\b((\\d+\\.\\d*)|(\\.\\d+))(e[-+]?\\d+)?([lfud]|ul)?\\b"
   ignoreCase: true
@@ -15,6 +61,13 @@ numbers:
 - beginString: "\\b[0-9_]+([lfud]|ul)?\\b"
   ignoreCase: true
   regularExpression: true
+commands:
+- beginString: "(?<=\\.)[a-z$_][a-zA-Z0-9$_]*(?=\\()"
+  regularExpression: true
+variables:
+- beginString: "super"
+- beginString: "this"
+comments: []
 values:
 - beginString: "\\b[A-Z][A-Z0-9_]+\\b"
   regularExpression: true
@@ -26,60 +79,13 @@ commentDelimiters:
   endDelimiter: "*/"
   beginDelimiter: "/*"
   inlineDelimiter: "//"
-types:
-- beginString: "Contact"
-- beginString: "Image"
-- beginString: "Item"
-- beginString: "Selection"
-- beginString: "Setpoint"
-- beginString: "Slider"
-- beginString: "String"
-- beginString: "Switch"
-- beginString: "Text"
-- beginString: "Webview"
-commands:
-- beginString: "(?<=\\.)[a-z$_][a-zA-Z0-9$_]*(?=\\()"
-  regularExpression: true
 extensions:
 - keyString: "sitemap"
-attributes:
-- beginString: "height"
-- beginString: "icon"
-- beginString: "item"
-- beginString: "label"
-- beginString: "mappings"
-- beginString: "maxValue"
-- beginString: "minValue"
-- beginString: "refresh"
-- beginString: "step"
-- beginString: "valuecolor"
-- beginString: "visibility"
-- beginString: "width"
-characters:
-- beginString: "'"
-  endString: "'"
-metadata:
-  version: "0.1"
-  author: "dmalorny"
-  license: "MIT"
-  lastModified: "2019-05-22"
-  description: "Work in progress..."
-  distributionURL: "https://github.com/dmalorny/OpenHAB-coteditor"
 strings:
 - beginString: "\""
   endString: "\""
 keywords:
-- beginString: "Frame"
-- beginString: "Group"
 - beginString: "sitemap"
-outlineMenu:
-- beginString: "^([\\t ]*)(Frame)(.*?)(?=(\\{|$))"
-  keyString: "$1$2 $3"
-  description: "Frame"
-- beginString: "^([\\t ]*)(Group)(.*?)(?=(\\{|$))"
-  keyString: "$1$2 $3"
-  description: "Group"
-- beginString: "^([\\t ]*)(sitemap)(.*?)(?=(\\{|$))"
-  bold: true
-  keyString: "$1$2 $3"
-  description: "sitemap"
+characters:
+- beginString: "'"
+  endString: "'"
