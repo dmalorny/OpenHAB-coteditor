@@ -1,24 +1,15 @@
-extensions:
-- keyString: "rules"
-commands:
-- beginString: "(?<=\\.)[a-z$_][a-zA-Z0-9$_]*(?=\\()"
-  regularExpression: true
-metadata:
-  distributionURL: "https://github.com/dmalorny/OpenHAB-coteditor"
-  author: "dmalorny"
-  license: "MIT"
-  lastModified: "2019-05-22"
-  description: "Work in progress..."
-  version: "0.1"
-characters:
-- beginString: "'"
-  endString: "'"
-strings:
-- beginString: "\""
-  endString: "\""
 variables:
 - beginString: "super"
 - beginString: "this"
+keywords:
+- beginString: "end"
+- beginString: "rule"
+- beginString: "then"
+- beginString: "when"
+comments: []
+characters:
+- beginString: "'"
+  endString: "'"
 types:
 - beginString: "boolean"
 - beginString: "byte"
@@ -28,15 +19,33 @@ types:
 - beginString: "int"
 - beginString: "Item"
 - beginString: "long"
+- beginString: "Number"
 - beginString: "short"
 - beginString: "String"
+- beginString: "Time"
+- beginString: "val"
 - beginString: "var"
 - beginString: "void"
-keywords:
-- beginString: "end"
-- beginString: "rule"
-- beginString: "then"
-- beginString: "when"
+strings:
+- beginString: "\""
+  endString: "\""
+metadata:
+  version: "0.1"
+  author: "dmalorny"
+  license: "MIT"
+  lastModified: "2019-05-22"
+  description: "Work in progress..."
+  distributionURL: "https://github.com/dmalorny/OpenHAB-coteditor"
+extensions:
+- keyString: "rules"
+commands:
+- beginString: "(?<=\\.)[a-z$_][a-zA-Z0-9$_]*(?=\\()"
+  regularExpression: true
+outlineMenu:
+- beginString: "^([\\t ]*)(rule)(.*?)(?=(\\{|$))"
+  bold: true
+  keyString: "$1$2 : $3"
+  description: "rule"
 values:
 - beginString: "\\b[A-Z][A-Z0-9_]+\\b"
   regularExpression: true
@@ -44,6 +53,11 @@ values:
 - beginString: "NaN"
 - beginString: "null"
 - beginString: "true"
+commentDelimiters:
+  endDelimiter: "*/"
+  beginDelimiter: "/*"
+  inlineDelimiter: "//"
+attributes: []
 numbers:
 - beginString: "\\b((\\d+\\.\\d*)|(\\.\\d+))(e[-+]?\\d+)?([lfud]|ul)?\\b"
   ignoreCase: true
@@ -57,14 +71,3 @@ numbers:
 - beginString: "\\b[0-9_]+([lfud]|ul)?\\b"
   ignoreCase: true
   regularExpression: true
-attributes: []
-outlineMenu:
-- beginString: "^([\\t ]*)(rule)(.*?)(?=(\\{|$))"
-  bold: true
-  keyString: "$1$2 : $3"
-  description: "rule"
-comments: []
-commentDelimiters:
-  endDelimiter: "*/"
-  beginDelimiter: "/*"
-  inlineDelimiter: "//"
