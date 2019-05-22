@@ -1,22 +1,11 @@
-outlineMenu:
-- beginString: "^([\\t ]*)(rule)(.*?)(?=(\\{|$))"
-  bold: true
-  keyString: "$1$2 : $3"
-  description: "rule"
-commands:
-- beginString: "(?<=\\.)[a-z$_][a-zA-Z0-9$_]*(?=\\()"
-  regularExpression: true
-- beginString: "logDebug"
-- beginString: "logInfo"
-- beginString: "postUpdate"
-- beginString: "say"
-- beginString: "sendCommand"
-attributes: []
-extensions:
-- keyString: "rules"
-characters:
-- beginString: "'"
-  endString: "'"
+metadata:
+  distributionURL: "https://github.com/dmalorny/OpenHAB-coteditor"
+  author: "dmalorny"
+  license: "MIT"
+  lastModified: "2019-05-22"
+  description: "Work in progress..."
+  version: "0.1"
+comments: []
 numbers:
 - beginString: "\\b((\\d+\\.\\d*)|(\\.\\d+))(e[-+]?\\d+)?([lfud]|ul)?\\b"
   ignoreCase: true
@@ -30,9 +19,17 @@ numbers:
 - beginString: "\\b[0-9_]+([lfud]|ul)?\\b"
   ignoreCase: true
   regularExpression: true
+characters:
+- beginString: "'"
+  endString: "'"
 strings:
 - beginString: "\""
   endString: "\""
+outlineMenu:
+- beginString: "^([\\t ]*)(rule)(.*?)(?=(\\{|$))"
+  bold: true
+  keyString: "$1$2 : $3"
+  description: "rule"
 keywords:
 - beginString: "and"
 - beginString: "as"
@@ -40,8 +37,11 @@ keywords:
 - beginString: "changed"
 - beginString: "command"
 - beginString: "cron"
+- beginString: "else"
 - beginString: "end"
+- beginString: "if"
 - beginString: "import"
+- beginString: "instanceof"
 - beginString: "is"
 - beginString: "Member of"
 - beginString: "or"
@@ -54,27 +54,27 @@ keywords:
 - beginString: "triggered"
 - beginString: "update"
 - beginString: "when"
-variables:
-- beginString: "super"
-- beginString: "this"
-metadata:
-  version: "0.1"
-  author: "dmalorny"
-  license: "MIT"
-  lastModified: "2019-05-22"
-  description: "Work in progress..."
-  distributionURL: "https://github.com/dmalorny/OpenHAB-coteditor"
-values:
-- beginString: "\\b[A-Z][A-Z0-9_]+\\b"
-  regularExpression: true
-- beginString: "false"
-- beginString: "NaN"
-- beginString: "null"
-- beginString: "true"
 commentDelimiters:
   endDelimiter: "*/"
   beginDelimiter: "/*"
   inlineDelimiter: "//"
+variables:
+- beginString: "super"
+- beginString: "this"
+commands:
+- beginString: "(?<=\\.)[a-z$_][a-zA-Z0-9$_]*(?=\\()"
+  regularExpression: true
+- beginString: "callScript"
+- beginString: "createTimer"
+- beginString: "logDebug"
+- beginString: "logInfo"
+- beginString: "postUpdate"
+- beginString: "pushoverBuilder"
+- beginString: "say"
+- beginString: "sendCommand"
+- beginString: "sendPushoverMessage"
+extensions:
+- keyString: "rules"
 types:
 - beginString: "boolean"
 - beginString: "byte"
@@ -95,7 +95,15 @@ types:
 - beginString: "System"
 - beginString: "Thing"
 - beginString: "Time"
+- beginString: "Timer"
 - beginString: "val"
 - beginString: "var"
 - beginString: "void"
-comments: []
+attributes: []
+values:
+- beginString: "\\b[A-Z][A-Z0-9_]+\\b"
+  regularExpression: true
+- beginString: "false"
+- beginString: "NaN"
+- beginString: "null"
+- beginString: "true"

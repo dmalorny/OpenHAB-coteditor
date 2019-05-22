@@ -1,3 +1,6 @@
+variables:
+- beginString: "super"
+- beginString: "this"
 metadata:
   version: "0.1"
   author: "dmalorny"
@@ -5,13 +8,25 @@ metadata:
   lastModified: "2019-05-22"
   description: "Work in progress..."
   distributionURL: "https://github.com/dmalorny/OpenHAB-coteditor"
+extensions:
+- keyString: "script"
+numbers:
+- beginString: "\\b((\\d+\\.\\d*)|(\\.\\d+))(e[-+]?\\d+)?([lfud]|ul)?\\b"
+  ignoreCase: true
+  regularExpression: true
+- beginString: "\\b0b[01_]+([lfud]|ul)?\\b"
+  ignoreCase: true
+  regularExpression: true
+- beginString: "\\b0x[0-9a-f_]+([lfud]|ul)?\\b"
+  ignoreCase: true
+  regularExpression: true
+- beginString: "\\b[0-9_]+([lfud]|ul)?\\b"
+  ignoreCase: true
+  regularExpression: true
 strings:
 - beginString: "\""
   endString: "\""
-characters:
-- beginString: "'"
-  endString: "'"
-comments: []
+attributes: []
 keywords:
 - beginString: "abstract"
 - beginString: "assert"
@@ -50,12 +65,7 @@ keywords:
 - beginString: "try"
 - beginString: "volatile"
 - beginString: "while"
-variables:
-- beginString: "super"
-- beginString: "this"
-extensions:
-- keyString: "script"
-attributes: []
+comments: []
 values:
 - beginString: "\\b[A-Z][A-Z0-9_]+\\b"
   regularExpression: true
@@ -63,13 +73,9 @@ values:
 - beginString: "NaN"
 - beginString: "null"
 - beginString: "true"
-commands:
-- beginString: "(?<=\\.)[a-z$_][a-zA-Z0-9$_]*(?=\\()"
-  regularExpression: true
-- beginString: "logDebug"
-- beginString: "logInfo"
-- beginString: "postUpdate"
-- beginString: "sendCommand"
+characters:
+- beginString: "'"
+  endString: "'"
 outlineMenu:
 - beginString: "^([\\t ]*)(class)(.*?)(?=(\\{|$))"
   bold: true
@@ -81,23 +87,6 @@ outlineMenu:
   description: "protected"
 - beginString: "^([\\t ]*)(public)[\\t ]+(.*)(?=\\{)"
   description: "public"
-numbers:
-- beginString: "\\b((\\d+\\.\\d*)|(\\.\\d+))(e[-+]?\\d+)?([lfud]|ul)?\\b"
-  ignoreCase: true
-  regularExpression: true
-- beginString: "\\b0b[01_]+([lfud]|ul)?\\b"
-  ignoreCase: true
-  regularExpression: true
-- beginString: "\\b0x[0-9a-f_]+([lfud]|ul)?\\b"
-  ignoreCase: true
-  regularExpression: true
-- beginString: "\\b[0-9_]+([lfud]|ul)?\\b"
-  ignoreCase: true
-  regularExpression: true
-commentDelimiters:
-  endDelimiter: "*/"
-  beginDelimiter: "/*"
-  inlineDelimiter: "//"
 types:
 - beginString: "boolean"
 - beginString: "byte"
@@ -108,5 +97,19 @@ types:
 - beginString: "long"
 - beginString: "short"
 - beginString: "String"
+- beginString: "val"
 - beginString: "var"
 - beginString: "void"
+commands:
+- beginString: "(?<=\\.)[a-z$_][a-zA-Z0-9$_]*(?=\\()"
+  regularExpression: true
+- beginString: "callScript"
+- beginString: "logDebug"
+- beginString: "logInfo"
+- beginString: "postUpdate"
+- beginString: "say"
+- beginString: "sendCommand"
+commentDelimiters:
+  endDelimiter: "*/"
+  beginDelimiter: "/*"
+  inlineDelimiter: "//"
