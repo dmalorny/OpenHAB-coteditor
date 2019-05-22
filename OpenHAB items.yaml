@@ -1,0 +1,64 @@
+commands:
+- beginString: "(?<=\\.)[a-z$_][a-zA-Z0-9$_]*(?=\\()"
+  regularExpression: true
+extensions:
+- keyString: "items"
+commentDelimiters:
+  endDelimiter: "*/"
+  beginDelimiter: "/*"
+  inlineDelimiter: "//"
+comments: []
+numbers:
+- beginString: "\\b((\\d+\\.\\d*)|(\\.\\d+))(e[-+]?\\d+)?([lfud]|ul)?\\b"
+  ignoreCase: true
+  regularExpression: true
+- beginString: "\\b0b[01_]+([lfud]|ul)?\\b"
+  ignoreCase: true
+  regularExpression: true
+- beginString: "\\b0x[0-9a-f_]+([lfud]|ul)?\\b"
+  ignoreCase: true
+  regularExpression: true
+- beginString: "\\b[0-9_]+([lfud]|ul)?\\b"
+  ignoreCase: true
+  regularExpression: true
+variables:
+- beginString: "super"
+- beginString: "this"
+types:
+- beginString: "Contact"
+- beginString: "Dimmer"
+- beginString: "Image"
+- beginString: "Number"
+- beginString: "Setpoint"
+- beginString: "Slider"
+- beginString: "String"
+- beginString: "Switch"
+attributes:
+- beginString: "channel"
+metadata:
+  distributionURL: "https://github.com/dmalorny/OpenHAB-coteditor"
+  author: "dmalorny"
+  license: "MIT"
+  lastModified: "2019-05-22"
+  description: "Work in progress..."
+  version: "0.1"
+keywords:
+- beginString: "Group"
+outlineMenu:
+- beginString: "^([\\t ]*)(rule)(.*?)(?=(\\{|$))"
+  bold: true
+  keyString: "$1$2 : $3"
+  description: "rule"
+values:
+- beginString: "<[a-z-]+>"
+  regularExpression: true
+- beginString: "false"
+- beginString: "NaN"
+- beginString: "null"
+- beginString: "true"
+strings:
+- beginString: "\""
+  endString: "\""
+characters:
+- beginString: "'"
+  endString: "'"

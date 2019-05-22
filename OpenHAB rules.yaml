@@ -1,0 +1,70 @@
+extensions:
+- keyString: "rules"
+commands:
+- beginString: "(?<=\\.)[a-z$_][a-zA-Z0-9$_]*(?=\\()"
+  regularExpression: true
+metadata:
+  distributionURL: "https://github.com/dmalorny/OpenHAB-coteditor"
+  author: "dmalorny"
+  license: "MIT"
+  lastModified: "2019-05-22"
+  description: "Work in progress..."
+  version: "0.1"
+characters:
+- beginString: "'"
+  endString: "'"
+strings:
+- beginString: "\""
+  endString: "\""
+variables:
+- beginString: "super"
+- beginString: "this"
+types:
+- beginString: "boolean"
+- beginString: "byte"
+- beginString: "char"
+- beginString: "double"
+- beginString: "float"
+- beginString: "int"
+- beginString: "Item"
+- beginString: "long"
+- beginString: "short"
+- beginString: "String"
+- beginString: "var"
+- beginString: "void"
+keywords:
+- beginString: "end"
+- beginString: "rule"
+- beginString: "then"
+- beginString: "when"
+values:
+- beginString: "\\b[A-Z][A-Z0-9_]+\\b"
+  regularExpression: true
+- beginString: "false"
+- beginString: "NaN"
+- beginString: "null"
+- beginString: "true"
+numbers:
+- beginString: "\\b((\\d+\\.\\d*)|(\\.\\d+))(e[-+]?\\d+)?([lfud]|ul)?\\b"
+  ignoreCase: true
+  regularExpression: true
+- beginString: "\\b0b[01_]+([lfud]|ul)?\\b"
+  ignoreCase: true
+  regularExpression: true
+- beginString: "\\b0x[0-9a-f_]+([lfud]|ul)?\\b"
+  ignoreCase: true
+  regularExpression: true
+- beginString: "\\b[0-9_]+([lfud]|ul)?\\b"
+  ignoreCase: true
+  regularExpression: true
+attributes: []
+outlineMenu:
+- beginString: "^([\\t ]*)(rule)(.*?)(?=(\\{|$))"
+  bold: true
+  keyString: "$1$2 : $3"
+  description: "rule"
+comments: []
+commentDelimiters:
+  endDelimiter: "*/"
+  beginDelimiter: "/*"
+  inlineDelimiter: "//"
